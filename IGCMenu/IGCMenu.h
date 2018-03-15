@@ -5,6 +5,10 @@
 //  Created by Sunil Sharma on 11/02/16.
 //  Copyright (c) 2016 Sunil Sharma. All rights reserved.
 //
+//
+// ALTIMAC'S NOTE: I can't say this code is good. Honestly it's even pretty bad, but it's simple and does mostly what's needed in Herdly. Other more robust codes are too complex and swift :(
+// Best code is probably this one (swift only): https://github.com/tungvoduc/DTButtonMenuController but it is not as easy to integrate in Herdly...
+// Found a much better code, objc and easy to integrate in Herdly: https://github.com/nuudles/VLDContextSheet
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
@@ -16,6 +20,11 @@ typedef enum {
     Dark,
     None
 }IGCMenuBackgroundOptions;
+
+typedef enum {
+    Top,
+    Bottom,
+}IGCMenuPositionOptions;
 
 @protocol IGCMenuDelegate <NSObject>
 
@@ -36,13 +45,14 @@ typedef enum {
 @property (strong,nonatomic) NSArray *menuBackgroundColorsArray; //Menu items background color,it can be empty, default color is white
 @property (strong,nonatomic) NSArray *menuImagesNameArray;       //Menu item icons array it can be empty
 @property (nonatomic) BOOL disableBackground;       //Disable background view, default is TRUE
-@property int maxColumn;                            //Maximium number of column,default is 3
 @property int menuHeight;                           //height = width ,default is 65
 @property IGCMenuBackgroundOptions backgroundType;  //Default is BlurEffectDark
+@property IGCMenuPositionOptions positionStyle;    //Default is Top
 
 -(void)showCircularMenu;
 -(void)hideCircularMenu;
--(void)showGridMenu;
--(void)hideGridMenu;
 
 @end
+
+
+
